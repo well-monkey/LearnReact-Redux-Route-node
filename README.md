@@ -56,174 +56,215 @@
 
 
 
+
+
 ```
 第2章 知识储备
 
 第2-1节 介绍React开发环境
 
-一.课程内容
-    1.Create-react-app脚手架生成文件格式 （Facebook官方推荐）
-    2.安装和使用第三方库
-    3.定制化配置
-二、React官方脚手架
-    1.官网 https://github.com/facebookincubator/create-react-app  
-    npm install -g create-react-app
-    create-react-app imooc
-    2.npm start 开启调试环境
-    3.浏览器访问 localhost:3000  
-    4.脚手架命令 
-        npm install redux --save 安装第三方库 redux
-        npm run eject 弹出配置文件 可以自定义配置webpack 单项不可逆项
-        扩展package.json里的字段，扩展npm run 命令
-第2-2节 ES6常用语法       
-三、ES6常用语法
-    1.ES6是什么
-    2015年6月正式发布
-    使用babel语法转换器，支持低端浏览器
-    流行的库基本都基于ES6构建 React默认使用ES6新语法开发
-    2.环境配置
-    安装node.js
-    npm install -g create-react-app 安装脚手架
-    create-react-app ReactApp 创建react项目
-    3.ES6新语法讲解
-    (1) 块级作用域
-        let和const
-        {
-            vat name = 'imooc' //获取并打印
-            let sex = '男' //获取不到
-        }
-        console.log(name,sex)
-        const 是常量 不能修改
-    (2) 函数的用法 参数默认值 箭头函数 展开运算符
-        //模板字符出纳  使用反引号，直接写变量  告别+拼接字符串
-        let name = 'imooc'
-        let course = 'React'
-        console.log('hello ' + name +',course is ' + course) //以前
-        console.log(`hello ${name},course is ${course}`)  //现在
-        console.log(`
-            测试多行
-            换行
-            字符串
-            es6不会报错
-        `)
+    一.课程内容
 
-        // 函数的用法 参数默认值 箭头函数 展开运算符
-        // 1.代码简洁  参照例子1
-        // 2.this作用域保持   在类似于定时器等函数中 this可以保持不变
-        // 3.函数体只有一条return语句 可以简写 类似Python  参照例子3
-        // 4.参数可以给默认值如果没有传值就有一个默认值   参照例子4
-        // 5.参数可以传数组 数组前面用三个点 ...arr 可以把数组展开 参照例子5 展开符 把中括号去掉
+        1.Create-react-app脚手架生成文件格式 （Facebook官方推荐）
+        2.安装和使用第三方库
+        3.定制化配置
 
-        //ES6函数用法例子1
-        function hello(name){
-            console.log(`hello ${name} !`)
-        }
-        const hiFun = (name) =>{
-            console.log(`hello ${name} !`)
-        }
-        hello('你好')
-        hiFun('大熊猫')
+    二、React官方脚手架
+        1.官网 https://github.com/facebookincubator/create-react-app 
 
-        //ES6函数用法例子2
-        setTimeout(function(){
-            console.log(123)
-        },1000)
+            (1)npm install -g create-react-app
+            (2)create-react-app imooc
+            
+        2.npm start 开启调试环境
+        3.浏览器访问 localhost:3000  
+        4.脚手架命令 
 
-        //ES6函数用法例子3
-        const double = x => x*2
-        console.log(double(5))
+            (1)npm install redux --save 安装第三方库 redux
+            (2)npm run eject 弹出配置文件 可以自定义配置webpack 单项不可逆项
+            (3)扩展package.json里的字段，扩展npm run 命令
 
-        //ES6函数用法例子4
-        const helloDefault = (name='小狗') =>{
-            console.log(`hello ${name}`)
-        }
-        helloDefault()
 
-        //ES6函数用法例子5
-        function helloApply(name1,name2){
-            console.log(name1,name2)
-        }
-        var applyArr = ['哈士奇','柴犬1']
-        helloApply.apply(null,applyArr)
-        helloApply(...applyArr)
-    (3) 对象扩展 object扩展 
-        // Object.keys values entries
-        // 对象方法的简写
-        // 展开运算符（不是ES6标准，但是babel支持）
-        let obj = { name:'哈士奇',isSmart:'no'}
-        console.log(Object.keys(obj))     //key分成一个数组
-        console.log(Object.values(obj))   //values分成一个数组
-        console.log(Object.entries(obj))  //key values
+第2-2节 ES6常用语法 
 
-        const name = 'desc'
-        const dogObj = {
-            // name:'大黄'   //如果只写这个  会打印成两个
-            name,
-            [name]:'大黄',   //[]是计算属性
-            hello:function(){
+    三、ES6常用语法
+        1.ES6是什么
 
-            }, 
-            hello1(){       //function可以不用写  简写
+            (1)2015年6月正式发布
+            (2)使用babel语法转换器，支持低端浏览器 
+            (3)流行的库基本都基于ES6构建 React默认使用ES6新语法开发
 
+        2.环境配置
+
+            (1)安装node.js
+            (2)npm install -g create-react-app 安装脚手架
+            (3)create-react-app ReactApp 创建react项目
+
+        3.ES6新语法讲解
+
+        (1) 块级作用域
+
+            let和const
+            {
+                vat name = 'imooc' //获取并打印
+                let sex = '男' //获取不到
             }
-        }
-        dogObj[name] = 'hello 大黄'
-        console.log(dogObj)
+            console.log(name,sex)
+            const 是常量 不能修改
 
-        //对象之间的合并 展开运算符
-        const PM = {'type':'产品',workYear:'15年了'}
-        const FE = {'type':'前端',sex:'男',age:'23'}
-        console.log({...PM,...FE})
-    (4) 解构赋值    数组解构  对象解构
-        // 数组函数也可以多返回值了 
-        const arr = ['网易','阿里']
-        let arg1 = arr[0]
-        let arg2 = arr[1]
-        let [newArg1,newArg2] = arr 
-        console.log(arg1,'|',arg2,newArg1,'|',newArg2)
+        (2) 函数的用法 参数默认值 箭头函数 展开运算符
 
-        //对象解构
-        const positionObj = {name:'产品经理',year:'3-5年'}
-        const {name,year} = positionObj
-        console.log(name,year)
-    (5) 类 提供class的语法糖 是prototype的语法糖 extends继承 constructor 构造函数
-        class MyApp{
-            constructor(){
-                this.name = '老王'
+            模板字符出纳  使用反引号，直接写变量  告别+拼接字符串
+            let name = 'imooc'
+            let course = 'React'
+            console.log('hello ' + name +',course is ' + course) //以前
+            console.log(`hello ${name},course is ${course}`)  //现在
+            console.log(`
+                测试多行
+                换行
+                字符串
+                es6不会报错
+            `)
+
+            // 函数的用法 参数默认值 箭头函数 展开运算符
+            // 1.代码简洁  参照例子1
+            // 2.this作用域保持   在类似于定时器等函数中 this可以保持不变
+            // 3.函数体只有一条return语句 可以简写 类似Python  参照例子3
+            // 4.参数可以给默认值如果没有传值就有一个默认值   参照例子4
+            // 5.参数可以传数组 数组前面用三个点 ...arr 可以把数组展开 参照例子5 展开符 把中括号去掉
+
+            e1.ES6函数用法例子1
+
+            function hello(name){
+                console.log(`hello ${name} !`)
             }
-            sayHello(){
-                console.log(`hello ${this.name} !`)
+            const hiFun = (name) =>{
+                console.log(`hello ${name} !`)
             }
-        }
-        let app = new MyApp()
-        app.sayHello()
-   （6）新的数据结构 ES6中新出现的数据结构   
-        set 元素补课不可重合
-        Map
-        Symbol
-    (7）模块化 ES6中自带了模块化机制，告别了seajs和require.js
-        // import import{}  Export Export default  node现在还不支持，还需要用require  来记载文件
-        // module1.js 
-        export const name  = '模块1'
-        export function sayHello(){console.log('hello')}
-        export default function test(){console.log('hello')}
-        // module2.js
-        // import { name } from './module1'
-        //import * as test from './module1'
-        console.log(name)
-    (8) 其他  还有一些特性。不在ES6范围，但是也被babel支持 被大家接受和使用
-        对象扩展符 函数绑定     babel-plugin-transform-object-rest-spread 插件 支持扩展符好
-        装饰器
-        Async await
-        promise  迭代器和生成器 代理proxy
-    (9)常见代码片段
+            hello('你好')
+            hiFun('大熊猫')
+
+
+            e2.ES6函数用法例子2
+            setTimeout(function(){
+                console.log(123)
+            },1000)
+
+            e3.ES6函数用法例子3
+            const double = x => x*2
+            console.log(double(5))
+
+            e4.ES6函数用法例子4
+            const helloDefault = (name='小狗') =>{
+                console.log(`hello ${name}`)
+            }
+            helloDefault()
+
+            e5.ES6函数用法例子5
+            function helloApply(name1,name2){
+                console.log(name1,name2)
+            }
+            var applyArr = ['哈士奇','柴犬1']
+            helloApply.apply(null,applyArr)
+            helloApply(...applyArr)
+
+        (3) 对象扩展 object扩展 
+
+            // Object.keys values entries
+            // 对象方法的简写
+            // 展开运算符（不是ES6标准，但是babel支持）
+            let obj = { name:'哈士奇',isSmart:'no'}
+            console.log(Object.keys(obj))     //key分成一个数组
+            console.log(Object.values(obj))   //values分成一个数组
+            console.log(Object.entries(obj))  //key values
+
+            const name = 'desc'
+            const dogObj = {
+                // name:'大黄'   //如果只写这个  会打印成两个
+                name,
+                [name]:'大黄',   //[]是计算属性
+                hello:function(){
+
+                }, 
+                hello1(){       //function可以不用写  简写
+
+                }
+            }
+            dogObj[name] = 'hello 大黄'
+            console.log(dogObj)
+
+            //对象之间的合并 展开运算符
+            const PM = {'type':'产品',workYear:'15年了'}
+            const FE = {'type':'前端',sex:'男',age:'23'}
+            console.log({...PM,...FE})
+
+        (4) 解构赋值    数组解构  对象解构
+
+            // 数组函数也可以多返回值了 
+            const arr = ['网易','阿里']
+            let arg1 = arr[0]
+            let arg2 = arr[1]
+            let [newArg1,newArg2] = arr 
+            console.log(arg1,'|',arg2,newArg1,'|',newArg2)
+
+            //对象解构
+            const positionObj = {name:'产品经理',year:'3-5年'}
+            const {name,year} = positionObj
+            console.log(name,year)
+            
+        (5) 类 提供class的语法糖 是prototype的语法糖 extends继承 
+
+        constructor 构造函数
+            class MyApp{
+                constructor(){
+                    this.name = '老王'
+                }
+                sayHello(){
+                    console.log(`hello ${this.name} !`)
+                }
+            }
+            let app = new MyApp()
+            app.sayHello()
+
+        (6) 新的数据结构 ES6中新出现的数据结构 
+
+            set 元素补课不可重合
+            Map
+            Symbol
+
+        (7）模块化 ES6中自带了模块化机制，告别了seajs和require.js
+
+            // import import{}  Export Export default  node现在还不支持，还需要用require  来记载文件
+            // module1.js 
+            export const name  = '模块1'
+            export function sayHello(){console.log('hello')}
+            export default function test(){console.log('hello')}
+            // module2.js
+            // import { name } from './module1'
+            //import * as test from './module1'
+            console.log(name)
+
+        (8) 其他  还有一些特性。不在ES6范围，但是也被babel支持 被大家接受和使用
+
+            对象扩展符 函数绑定     babel-plugin-transform-object-rest-spread 插件 支持扩展符好
+            装饰器
+            Async await
+            promise  迭代器和生成器 代理proxy
+
+        (9)常见代码片段
 ```
 
 
 
 
+
+
+
+
+
 ```
+
     第2-3节 express
+
         Express 开发web接口 基于nodejs 快速、开发、极简的web开发框架
         非关系型数据库 mongodb   json数据
         使用nodejs的mongoose模块链接和操作mongodb
@@ -231,6 +272,7 @@
         1.npm install express -save 安装
 
         2.hello world 应用
+
             const express = require('express')
             // 新建app
             const app = express()
@@ -244,38 +286,52 @@
                 console.log('Node app start at port 9093')
             })
             进入相应的目录 启动 node server.js 
+
         3.监听路由和相应内容  使用nodemon自动重启 npm install  nodemon -g
-        nodemon server.js
+
+            nodemon server.js
+
         4.app.get app.post 分别开发get和post接口
+
           app.use 使用模块
           res.send res.json res.sendfile 相应不同的内容
+
     第2-4节 mongodb   
+
         1.非关系型数据库   
-        官网 https://www.mongodb.com/ 下载安装MongoDB
-        brew install mongodb
-        brew services start mongodb  安装完输入启动
-        mongo           查看mongo状态   
-        npm install mongoose -save 安装mongoose  mongodb和mode配合比较好的就是mongoose库
-        通过mongoose操作mongodb,存储的就是json 相对于mysql来说，要易用得多
+
+            (1)官网 https://www.mongodb.com/ 下载安装MongoDB
+            (2)brew install mongodb
+            (3)brew services start mongodb  安装完输入启动
+            (4)mongo   查看mongo状态   
+            (5)npm install mongoose -save 安装mongoose  mongodb和mode配合比较好的就是mongoose库
+            通过mongoose操作mongodb,存储的就是json 相对于mysql来说，要易用得多
+
         2.mongoose的使用
+
             connect链接数据库
             定义文档类型，Schema和model新建模型
             String Number等数据结构 
             定create,remove,update分别用来增、删、改的操作
             
+
         3.增删改查
-            mongod --config /usr/local/etc/mongod.com 后台启动  
-            Express 结合mongodb
-            封装mongoose   
-            Find和findOne用来查询数据
-            update更新数据
-            Remove删除数据
+
+            (1)mongod --config /usr/local/etc/mongod.com 后台启动  
+            (2)Express 结合mongodb
+            (3)封装mongoose   
+            (4)Find和findOne用来查询数据
+            (5)update更新数据
+            (6)Remove删除数据
+
         建表    
         const User = mongoose.model('user',new mongoose.Schema({
             user:{type:String,require:true},
             age:{type:Number,require:true}
         }))
-        //增加
+
+        增加
+
         User.create({
             user:'chenyixun',
             age:'12'
@@ -286,7 +342,9 @@
                 console.log(err)
             }
         })  
-        //删除
+
+        删除
+
         User.remove({age:18},function(err,doc){
             if(!err){
                 console.log(doc)
@@ -294,7 +352,9 @@
                 console.log(err)
             }
         }) 
-        //修改
+        
+        修改
+
         User.update({'user':'xiaoming'},{'$set':{age:15}},function(err,doc){
             if(!err){
                 console.log(doc)
@@ -302,7 +362,9 @@
                 console.log(err)
             }
         })
-        //查找
+
+        查找
+
         User.find({user:'xiaoming'},function(err,doc){
             if(!err){
                 console.log(doc)
@@ -310,12 +372,20 @@
                 console.log(err)
             }
         })
+
         4.后续进阶
+
             mongodb独立工具函数
             express使用body-parser支持post参数
             使用cookie-parser存储登录信息cookie
 
 ```
+
+
+
+
+
+
 
 
 
@@ -330,10 +400,13 @@
     三、React进阶
 
     一、React是什么
+
         帮助你构建UI的库
         Facebook出品 专注View层
         一切皆组件
+
     二、组件之间传递数据
+
         组件之间使用props传递数据
         使用<组件 数据="值">的形式传递
         组件里使用this.props获取值
@@ -363,10 +436,12 @@
                 return <h2>一营营长，{this.props.老大}</h2>
             }
         }  
+
     三、组件内部state
-        组件内部通过state管理状态   
-        JSX本质就是js,所以直接数组.map渲染列表
-        constructor 设置出事状态，记得执行super(props)
+
+        1.组件内部通过state管理状态   
+        2.JSX本质就是js,所以直接数组.map渲染列表
+        3.constructor 设置出事状态，记得执行super(props)
         如 state就是一个不可变的对象，使用this.state获取
         class 一营 extends React.Component{
             constructor(props){    //构造函数
@@ -388,7 +463,9 @@
                 )
 	        }
         }
+
     四、事件
+
     onClick点击事件
         JSX里面，onClick={this.函数名}来绑定事件
         
@@ -417,41 +494,59 @@
         组件卸载声明周期
     
     六、chrome
+
         React Developer Tools
 
     七、Antd-mobile组件库
+
         蚂蚁金服出品的UI组件库
         npm install antd-mobile --save
         npm install react-app-rewired --save-dev 按需引入
+
 ```
+
+
+
+
+
+
+
+
 
 
 
 
 ```
 第4章 Redux状态管理与React-router
+
     第4-1节 Redux 是什么
-        Redux专注于状态管理， 和React解耦
-        单一状态，单项数据流
-        核心概念：store,state,action,reducer
-        举例子：独立团项目
-            独立团逐渐发展，管不过来了
-            人少的时候，无论是兵器或者人员变更，都是setState
-            发展为千人打团后,老李决定，军事生活分开
-            所有状态归赵政委(redux)管理，自己只打仗（view显示）
-        老赵主要功能
-            老赵有一个保险箱(store)，所有人的状态，在那里都有记录(state)
-            需要改变的时候，需要告诉专员(dispatch) 要干什么(action)   
-            处理变化的人(reducer)拿到state和action,生成新的state
-        走马上任
-            首先通过reducer新建store,随时通过store.getState获取状态
-            需要状态变更，store.dispatch(action)来修改状态
-            Reducer函数接受state和action,返回新的state,可以用store.subscribe监听每次修改  
-        npm  install redux --save
+
+        (1) Redux专注于状态管理， 和React解耦
+            单一状态，单项数据流
+            核心概念：store,state,action,reducer
+
+        (2)
+            举例子：独立团项目
+                独立团逐渐发展，管不过来了
+                人少的时候，无论是兵器或者人员变更，都是setState
+                发展为千人打团后,老李决定，军事生活分开
+                所有状态归赵政委(redux)管理，自己只打仗（view显示）
+            老赵主要功能
+                老赵有一个保险箱(store)，所有人的状态，在那里都有记录(state)
+                需要改变的时候，需要告诉专员(dispatch) 要干什么(action)   
+                处理变化的人(reducer)拿到state和action,生成新的state
+            走马上任
+                首先通过reducer新建store,随时通过store.getState获取状态
+                需要状态变更，store.dispatch(action)来修改状态
+                Reducer函数接受state和action,返回新的state,可以用store.subscribe监听每次修改  
+
+        (3) npm  install redux --save
+
         在app.js里面或者index.js里面
         import { createStore } from 'redux'
-        // 通过reducer建立
-        // 根据老的state和action 生成新的state
+
+        // 通过reducer建立 根据老的state和action 生成新的state
+
         function counter(state=0,action){
             switch(action.type){
                 case '加机关枪':
@@ -462,7 +557,9 @@
                     return 10
             }
         }
+
         // 1,新建store
+
         const store  = createStore(counter)
         const init = store.getState()
         console.log(init)
@@ -473,10 +570,12 @@
         store.subscribe(listener) //每次状态变化都会触发这个函数
         //派发时间 传递 action
         store.dispatch({type:'加机关枪'})
-        store.dispatch({type:'减机关枪'})        
-    第4-2节 Redux如何和React一起用  
-        手动链接，老赵怎么管理独立团呢？
-        把store.dispatch方法传递给组件，内部可以调用修改状态
+        store.dispatch({type:'减机关枪'}) 
+
+    第4-2节 Redux如何和React一起用
+
+        (1)手动链接，老赵怎么管理独立团呢？
+        (2)把store.dispatch方法传递给组件，内部可以调用修改状态
         Subscribe订阅render函数，每次修改都重新渲染
         Redux相关内容，移到单独的文件index.redux.js单独管理    
 
@@ -485,8 +584,8 @@
         const ADD_GUN = '加机关枪'
         const REMOVE_GUN = '减机关枪'
 
-        // 通过reducer建立
-        // 根据老的state和action 生成新的state
+        // 通过reducer建立  根据老的state和action 生成新的state
+
         export function counter(state=0,action){
             switch(action.type){
                 case ADD_GUN:
@@ -497,7 +596,9 @@
                     return 10
             }
         }
+        
         // action creator 
+
         export function addGUN(){
             return{
                 type:ADD_GUN
@@ -517,9 +618,10 @@
         import registerServiceWorker from './registerServiceWorker';
         import { createStore } from 'redux'
         import { counter } from './index.redux'
-        // 1,新建store
-        const store  = createStore(counter)
 
+        // 1,新建store
+
+        const store  = createStore(counter)
         function render(){
             ReactDOM.render(<App store = { store }/>, document.getElementById('root'));
             registerServiceWorker();
@@ -556,16 +658,19 @@
 
     第4-3节 Redux状态管理 优化 组件解耦 
 
-        组件尽可能的通用  所以 addGun 尽可能的以参数形式 传过去
-        store  组件形式传进去    思考 store 可能一层一层的往下传？属性传递陷阱
+        1.组件尽可能的通用  所以 addGun 尽可能的以参数形式 传过去
+        2.store  组件形式传进去    思考 store 可能一层一层的往下传？属性传递陷阱
 
     第4-4节 Redux状态管理 更进一步 让Redux可以处理异步
 
-        处理异步、调试工具、优雅的和react结合   
+        1.处理异步、调试工具、优雅的和react结合   
+
             Redux处理异步，需要redux-thunk插件
             npm install redux-devtools-extension并且开启
             使用react-redux优雅的链接react和redux
-        Redux默认只处理同步，异步需要redux-thunk中间件
+
+        2.Redux默认只处理同步，异步需要redux-thunk中间件
+
             npm install redux-thunk --save
             使用applyMiddleWare开启thunk中间件
             action可以返回函数，使用dispatch提交action
@@ -580,6 +685,7 @@
         const reduxDevtools = window.devToolsExtension ? window.devToolsExtension():()=>{}
 
         // 1,新建store
+
         const store  = createStore(counter,compose(
             applyMiddleware(thunk),
             reduxDevtools
@@ -587,52 +693,66 @@
        
     第4-6节 Redux状态管理 使用react-redux  
 
-        老赵能力用起来很麻烦，为了方便管理，使用魏和尚来负责链接
-            npm install react-redux --save
-            忘记subscribe,记住reducer,action,dispathc即可
-            React-redux提供provider和connect两个接口来链接
-        react-redux具体使用
-            使用provider组件在用用最外层，传入store即可，只用一次
-            connect 负责从外部获取组件需要的参数
-            connect可以用装饰器的方式写    
+        1.老赵能力用起来很麻烦，为了方便管理，使用魏和尚来负责链接
+
+            (1)npm install react-redux --save
+            (2)忘记subscribe,记住reducer,action,dispathc即可
+            (3)React-redux提供provider和connect两个接口来链接
+
+        2.react-redux具体使用
+
+            (1)使用provider组件在用用最外层，传入store即可，只用一次
+            (2)connect 负责从外部获取组件需要的参数
+            (3)connect可以用装饰器的方式写    
 
     第4-7节 Redux状态管理 使用React-redux (connect可以使用装饰器的方法来写)
 
-        使用装饰器优化connect代码
-            npm run eject 弹出个性化配置
-            npm install babel-plugin-transform-decorators-legacy
+        1.使用装饰器优化connect代码
+
+            (1)npm run eject 弹出个性化配置
+            (2)npm install 
+            (3)babel-plugin-transform-decorators-legacy
             package.json 里面babel加上plugins配置
 
-            @connect(
+            (4)@connect(
                 // 第一个参数  你要state什么属性放到props里面  
                 state =>({num:state}),
                 // 你要什么方法 放到props里面 自动dispatch
                 { addGun,removeGun,addGunAsync }) 
-        React 后续
-            什么数据应该放在React里
-            Redux管理ajax
-            Redux管理聊天数据
+
+        2.React 后续
+
+            (1)什么数据应该放在React里
+            (2)Redux管理ajax
+            (3)Redux管理聊天数据
 
     第4-8节 React-router4 路由
 
-        react-router基础知识
-        React-router4是什么
-            React官方推荐的路由库 4是最新版本
-            4是全新的版本 和之前的版本不兼容 浏览器和RN均兼容
-            React开发单页面应用必备，践行路由即组件的概念
-            核心概念 动态路由、Route、link、switch
-        简单的例子
-            npm install react-router-dom --save
-            Router4 使用react-router-dom 作为浏览器端的路由
-            忘记Router2的内容，拥抱最新的Router4
-        入门组件
-            BrowserRouer 包裹整个应用
-            Router 路由对应渲染的组件 可嵌套
-            link 跳转专用
+        1.react-router基础知识
+
+        2.React-router4是什么
+
+            (1)React官方推荐的路由库 4是最新版本
+            (2)4是全新的版本 和之前的版本不兼容 浏览器和RN均兼容
+            (3)React开发单页面应用必备，践行路由即组件的概念
+            (4)核心概念 动态路由、Route、link、switch
+        
+        3.简单的例子
+
+            (1)npm install react-router-dom --save
+            (2)Router4 使用react-router-dom 作为浏览器端的路由
+            (3)忘记Router2的内容，拥抱最新的Router4
+
+        4.入门组件
+            
+            (1)BrowserRouer 包裹整个应用
+            (2)Router 路由对应渲染的组件 可嵌套
+            (3)link 跳转专用
 
     第4-9节 React-router4 路由 其他组件   
 
-        其他组件
+        1.其他组件
+
             url参数  Route组件参数可用冒号标识参数
             Redirect组件跳转
             switch 之渲染一个子Route组件
@@ -642,6 +762,7 @@
             match     参数有关
 
     第4-10节 React-router4 和Redux配合   复杂redux应用 
+            
             auth.redux.js和dashboard.js
 
             const LOGOUT = 'LOGOUT'
@@ -655,23 +776,33 @@
                         return state      
                 }
             }
+
             // action
+
             export function login(){
                 return {type:LOGIN}
             }
             export function logout(){
                 return {type:LOGOUT}
             } 
+
     第4-11节 React-router4 和Redux配合   复杂redux应用  
-        和redux配合
+
+        1.和redux配合
             复杂redux应用 多个reducer,用combineReducers合并
             Redirect组件跳转
             Switch只渲染一个
         
-        合并connect redux 然后根据 isAuth判定是否登录然后 显示不同的按钮 跳转页面
+        2.合并connect redux 然后根据 isAuth判定是否登录然后 显示不同的按钮 跳转页面
+
     第4-12节 React-router4 和Redux配合   复杂redux应用  
         主要为回顾和总结  还有截图        
 ``` 
+
+
+
+
+
 
 
 
@@ -680,50 +811,77 @@
     第五章 需求 
         5.1注册-完善信息 - 列表 - 聊天
 
-            文件架构和规范
-                Src 前端源码目录
-                server后端express目录
-                核根据功能文件夹  component container reducers
-            router怎么划分页面
-                进入应用时获取用户信息，用户未登录跳转login页面
-                login和register页面不需要权限认证
-                用户信息  聊天列表 职位列表 共享底部tabbar
-            其他注意事项
-                mongodb字段设计
-                axios发送异步请求
-                redux管理所有数据 组件尽量用antd-mobile 弱化css
+            1.文件架构和规范
+
+                (1)Src 前端源码目录
+                (2)server后端express目录
+                (3)核根据功能文件夹  component container reducers
+
+            2.router怎么划分页面
+
+                (1)进入应用时获取用户信息，用户未登录跳转login页面
+                (2)login和register页面不需要权限认证
+                (3)用户信息  聊天列表 职位列表 共享底部tabbar
+
+            3.其他注意事项
+
+                (1)mongodb字段设计
+                (2)axios发送异步请求
+                (3)redux管理所有数据 组件尽量用antd-mobile 弱化css
 
         5.2前端端联调
 
-            node server 启动 服务端 loaclhost:9093/data 显示数据
-            使用axios发送异步请求
+            1.node server 启动 服务端 loaclhost:9093/data 显示数据
+
+            2.使用axios发送异步请求
+
                 如何发送，端口不一致，使用proxy配置转发
                 axios拦截器 统一loading处理
                 redux使用异步处理数据 渲染页面 然后dispatch即可
-            axios
+            
+            3.axios
+
                 简洁好用的发送库 npm install axios --save
                 package.json 里面统一做一下转发 
                 "proxy":"http://localhost:9093"  重启
 ```
+
+
+
+
+
+
+
+
+
+
+
+
 ```
     第六章 登录注册
 
         6.1登录注册
 
-            登录注册功能实现
+            1.登录注册功能实现
+
                 页面文件结构
                 web开发模式
                 前后端实现
-            骨架接口的实现
+
+            2.骨架接口的实现
+
                 组件放在component文件夹下面
                 文件放在container文件夹下面
                 页面入口处获取用户信息，决定跳转到哪个页面
-            开发模式
+
+            3.开发模式
+            
                 基于cookie用户验证
                     express依赖cookie-parser,需要npm install cookie-parser -save安装 
                     cookit类似于一张身份卡，登录有服务端返回，你带着cookie就可以访问受限资源
                     页cookie的管理浏览器会自动处理
-            开发流程
+
+            4.开发流程
                 页面加载页面（带cookie向后端获取用户信息）=> 用户加载页面 
                 如果登录 => app内部页面 
                 如果未登录 => 登录页面 =>登陆成功 前端存储cookie 跳转APP内部页面
@@ -734,8 +892,8 @@
             src 下面放 
             config.js index.js  job.png reducer.js  component container redux
 
-            config.js 保持不变 
-            reducer.js 返回空对象
+            config.js 保持不变  reducer.js 返回空对象
+
             index.js 
 
                 import React from 'react';
@@ -750,6 +908,7 @@
                 import 'antd-mobile/dist/antd-mobile.css';
 
                 // 1,新建store
+
                 const reduxDevtools = window.devToolsExtension ? window.devToolsExtension():()=>{}
                 const store  = createStore(reducers,compose(
                     applyMiddleware(thunk),
@@ -766,6 +925,7 @@
                 );
 
             package.json
+
                 babel-plugin-import 按需加载
                 transform-decorators-legacy
                 proxy:"http://localhost:9093"
@@ -775,9 +935,11 @@
                 react-redux 
                 react-router-dom
 
+
         6-3 登录注册-判断路由    
 
-            检测路由    AuthRoute 组件  检验路由是否ok  component文件夹下面新建AuthRoute
+
+            1.检测路由    AuthRoute 组件  检验路由是否ok  component文件夹下面新建AuthRoute
 
                 import React from 'react'
                 import axios from 'axios'
@@ -798,7 +960,7 @@
                 }
                 export default AuthRoute
 
-            server 下面建立 user.js  server.js 
+            2.server 下面建立 user.js  server.js 
 
                 user.js
                     // 中间件
@@ -1047,7 +1209,8 @@
                 module.exports = Router
 
         6-8 登陆注册-express功能的实现 6-9前后端联调
-            实现express的功能 首先接口需要请求post 所以需要安装body-parser  
+
+            1.实现express的功能 首先接口需要请求post 所以需要安装body-parser  
             npm install body-parser --save -dev
 
             所需要更改的几个地方
@@ -1100,8 +1263,10 @@
 
         6-10 登录注册-注册跳转+密码加密实现
 
-            注册页面如果成功后跳转到info页面 新建的utils页面 创建getRedirectPath方法
+           1.注册页面如果成功后跳转到info页面 新建的utils页面 创建getRedirectPath方法
+
             utils.js
+
             export function getRedirectPath({type,avator}){
                 // 根据用户信息 返回跳转地址 user.type /boss  /genius                            user.avatar /bossinfo /geniusinfo 
                 let url = (type = 'boss')?'/boss':'/genius'
@@ -1109,7 +1274,8 @@
                     url += 'info'
                 }
                 return url
-            }       
+            }    
+               
             user.redux.js  里面只需要改动三个方面
             
             import { getRedirectPath } from '../utils' // 引入这个方法 
@@ -1237,7 +1403,6 @@
             在登录接口使用
             res.cookie('userid',doc._id)   //这样在浏览器的response header里面就有这个了        
 
-
             //user.js
 
             // 详情接口 判断是否有userid 如果有的话找到id 并返回
@@ -1274,7 +1439,9 @@
                         return state
                 }
             }
+
             // 详情信息
+
             export function loadData(userinfo){
                 return { type:LOAD_DATA, payload:userinfo }
             }
@@ -1326,6 +1493,12 @@
                 return res.json({code:0,data:{user,type,_id}})
             })
 ```
+
+
+
+
+
+
 
 
 
@@ -1538,6 +1711,13 @@
                     selectAvatar:PropTypes.func.isRequired
                 }
 ```
+
+
+
+
+
+
+
 ```
     第八章 牛人列表的BOSS列表 
         
@@ -1673,6 +1853,7 @@
         8.3 牛人列表-牛人列表  8.4 牛人列表-使用redux管理牛人列表
 
             dashboard.js
+
             NavBar 加个className 吸顶到头部
             加个 
             引入 Switch 
@@ -1788,6 +1969,13 @@
 
             export default combineReducers({user,chatuser})
 ```
+
+
+
+
+
+
+
 
 
 
@@ -1947,7 +2135,9 @@
                 state=>state.user,
                 {logoutSubmit}
             )
+
             第三调用
+
             logout(){
                 const alert = Modal.alert
                 alert('注销', '确认退出登录吗？？？', [
@@ -1960,12 +2150,15 @@
             }
 
             //user.redux.js 里面 
-            首先声明  const LOGOUT = 'LOGOUT'
-            其次判断情况
-            case LOGOUT:
-            return {...initState,redirectTo:'/login'}  
-            第三导出方法
+
+                首先声明  const LOGOUT = 'LOGOUT'
+                其次判断情况
+                case LOGOUT:
+                return {...initState,redirectTo:'/login'}  
+                第三导出方法
+
             // 退出信息
+
             export function logoutSubmit(){
                 return { type:LOGOUT }
             }
@@ -2005,7 +2198,6 @@
                     return <h2>hello, i love React and redux</h2>
                 }
             }
-
 
             class Hello extends React.Component{
                 render(){
@@ -2100,6 +2292,16 @@
 
             handleChange 以及state前面加入 props 因为都在props对象下面
 ```
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2409,9 +2611,7 @@
 
             //getmsglist 初始化的时候最好就有了
 
-            
-
-
+        
 
 
 
@@ -2697,6 +2897,17 @@
                 })
             }}
 ```
+
+
+
+
+
+
+
+
+
+
+
 
 
 ```
@@ -3383,6 +3594,14 @@
 
 ```
 
+
+
+
+
+
+
+
+
 ```
     第14章 项目总结，回顾和展望
         14-1 eslint代码规范
@@ -3811,19 +4030,5 @@
             })
 
         index.js里面使用ReactDom.hydate取代render    
-
-
-
 ```
 
-
-
-
-#### 码云特技
-
-1. 使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2. 码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3. 你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4. [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5. 码云官方提供的使用手册 [http://git.mydoc.io/](http://git.mydoc.io/)
-6. 码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
