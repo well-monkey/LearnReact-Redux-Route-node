@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React组件</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+	<script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+	<script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        var HelloMessage = React.createClass({
+            render: function() {
+                return <h1>Hello </h1>;
+            }
+        });
+        var NameMessage = React.createClass({
+            render: function() {
+                return (
+                    <h1>{this.props.name}！</h1>
+                );
+            }
+        });
+        var ShowMessage = React.createClass({
+            
+            render: function() {
+                return (
+                    <div>
+                        <HelloMessage/>
+                        <NameMessage name={this.props.name}/>
+                    </div>
+                );
+            }
+        })
+        ReactDOM.render(
+            <ShowMessage name="勒布朗·詹姆斯绝杀步行者队"/>,
+            document.getElementById('example')
+        );
+    </script>
+</body>
+</html>

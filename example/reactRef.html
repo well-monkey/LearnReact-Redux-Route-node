@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>reactRefs</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+	<script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+	<script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+    <div id="example">
+
+    </div>
+    <script type="text/babel">
+        var HelloMessage = React.createClass({
+            componentDidMount:function () {
+                console.log(this.refs.myInput.innerHTML)
+            },
+            getInitialState:function(){
+                return({
+                    inputValue:'你好'
+                })
+            },
+            resetValue:function (event) { 
+                this.setState({
+                    inputValue:''
+                })
+            },
+            handleChange:function (event) { 
+                var evt = window.event||event;
+                this.setState({
+                    inputValue:evt.target.value
+                })
+            },
+            render:function (param) {
+                var inputValue = this.state.inputValue;
+                return(
+                    <div ref='content'>
+                        <input type="text" value={inputValue} ref="myInput" onChange={this.handleChange} />
+                        <button onClick={this.resetValue}>重置输入框值</button>
+                    </div>
+                ) 
+            }
+        })
+        ReactDOM.render(
+            <HelloMessage/>,
+            document.getElementById('example')
+        )
+    </script>
+</body>
+</html>

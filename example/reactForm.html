@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>reactForm</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+	<script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+	<script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+    <div id="example">
+
+    </div>
+    <script type="text/babel">
+        var HelloMessage = React.createClass({
+            getInitialState:() =>{
+                return{
+                    inputValue:'你好我是初始值'
+                }
+            },
+            handleChange:function(event){
+                var evt = window.event||event;
+                this.setState({inputValue:evt.target.value})
+            },
+            render:function(){
+                console.log(this.state)
+                var inputValue = this.state.inputValue;
+                return(
+                    <div>
+                        <input type="text" value={inputValue} onChange={this.handleChange} /> 
+                        <h4>{inputValue}</h4>
+                    </div>
+                )
+            }
+        })
+        ReactDOM.render(
+            <HelloMessage/>,
+            document.getElementById('example')
+        )
+    </script>
+</body>
+</html>

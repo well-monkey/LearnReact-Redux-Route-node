@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>reactState-状态</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+	<script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+	<script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+    <div id="example">
+        
+    </div>
+    <script type="text/babel">
+        var LikeButton = React.createClass({
+            getInitialState: function() {
+                //初始化一个状态
+                return {liked: false,redorblue:this.props.defaultColor};
+            },
+            handleClick: function(event) {
+                //点击更改 onClick 等事件，与原生 HTML 不同，on 之后第一个字母是大写的！ 比如本实例中，如果将 onClick={this.handleClick} 换成 onclick={this.handleClick} 则点击事件不再生效。
+                this.setState({liked: !this.state.liked,redorblue: this.state.redorblue == 'red'?'blue':'red'});
+            },
+            render: function() {
+                var text = this.state.liked ? '上班' : '下班';
+                var changeColor = this.state.redorblue;
+                var changeStyle = {
+                    color:changeColor
+                }
+                return (
+                    <div>
+                        <p style={changeStyle} onClick={this.handleClick}>
+                            我<b>{text}</b>了。
+                            点我切换状态。
+                        </p>
+                    </div>
+                );
+            }
+        });
+
+        ReactDOM.render(
+            <LikeButton />,
+            document.getElementById('example')
+        );
+    </script>
+
+</body>
+</html>

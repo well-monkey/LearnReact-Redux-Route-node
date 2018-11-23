@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>react-props</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+	<script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+	<script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+    <div id="example">
+
+    </div>
+    <script type="text/babel">
+        var title = 'props必填';
+        var HelloMessage  = React.createClass({
+            // getDefaultProps() 方法为 props 设置默认值，
+            getDefaultProps: function() {
+                return {
+                    name: 'reichard'
+                };
+            },
+            propTypes: {
+                title: React.PropTypes.string.isRequired,
+            },
+            render:function (param) {
+                return(
+                    <div>
+                        <h1>Hello {this.props.name} {this.props.title}</h1>
+                        <h3>
+                            state 和 props 主要的区别在于 props 是不可变的，而 state 可以根据与用户交互来改变。这就是为什么有些容器组件需要定义 state 来更新和修改数据。 而子组件只能通过 props 来传递数据。
+                        </h3>
+                    </div>
+                )
+            }
+        })
+
+        ReactDOM.render(
+            <HelloMessage title = { title }/>,
+            document.getElementById('example')
+        )
+    </script>
+</body>
+</html>
