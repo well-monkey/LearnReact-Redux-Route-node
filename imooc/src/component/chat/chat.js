@@ -16,6 +16,7 @@ class Chat extends React.Component{
         this.state = {text:'',msg:[]}
     }
     componentDidMount() {
+        console.log(!this.props.chat.chatmsg.length)
         if(!this.props.chat.chatmsg.length){
             this.props.getMegList()
             this.props.recvMsg()
@@ -33,7 +34,6 @@ class Chat extends React.Component{
     }
     handleSubmit(){
         const from = this.props.user._id;
-        console.log(this.props.user)
         const to = this.props.match.params.user
         const msg = this.state.text
         this.props.sendMsg({from,to,msg})

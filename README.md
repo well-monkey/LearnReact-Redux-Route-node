@@ -13,6 +13,15 @@
 ![image](https://github.com/well-monkey/LearnReact-Redux-Route-node/raw/master/example/static/login.gif)
 
 
+######   ======注册功能 分为两种身份======
+
+
+
+![image](https://github.com/well-monkey/LearnReact-Redux-Route-node/raw/master/example/static/register.gif)
+
+
+
+
 
 
 #### 教程说明
@@ -25,8 +34,8 @@
 
 1. cd imooc             //进入整体项目目录
 2. npm install          //安装依赖
-3. npm run server       //启动后台服务
-4. npm run start        //启动项目查看
+3. npm run server       //启动后台服务 端口9093
+4. npm run start        //启动项目查看 端口3000
 
 #### 学习说明
 
