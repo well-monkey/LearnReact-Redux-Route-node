@@ -20,7 +20,6 @@ class Chat extends React.Component{
             this.props.getMegList()
             this.props.recvMsg()
         }
-       
     }
     componentWillMount() {
          //当前的聊天目标id 
@@ -34,6 +33,7 @@ class Chat extends React.Component{
     }
     handleSubmit(){
         const from = this.props.user._id;
+        console.log(this.props.user)
         const to = this.props.match.params.user
         const msg = this.state.text
         this.props.sendMsg({from,to,msg})
@@ -64,23 +64,21 @@ class Chat extends React.Component{
                 >{users[userid].name}</NavBar>
                 <QueueAnim  delay={800} type='left'>
                     {chatmsgs.map(v =>{
-                        const avatar = require(`../img/${users[v.from].avatar}.png`)
-                        console.log(avatar)
-                        return v.from===userid?(
+                        return v.from?(v.from===userid?(
                             <List key={v._id}>
                                 <Item 
-                                    thumb={avatar}
+                                    thumb={require(`../img/${users[v.from].avatar}.png`)}
                                 >{v.content}</Item>
                             </List>
                         
                         ):(
                             <List key={v._id}>
                                 <Item 
-                                    extra={<img src={avatar} alt='' /> }    
+                                    extra={<img src={require(`../img/${users[v.from].avatar}.png`)} alt='' /> }    
                                     className='chat-me'
                                 >{v.content}</Item>
                             </List>
-                        )
+                        )):null
                     })}
                 </QueueAnim>
                

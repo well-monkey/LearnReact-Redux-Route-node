@@ -10,7 +10,8 @@ const initState = {
     redirectTo:'',
     msg:'',
     user:'',
-    type:''
+    type:'',
+    _id:''
 }
 // reducer
 
@@ -33,6 +34,7 @@ export function user(state=initState,action){
 
 function authSuccess(obj){
     const {pwd,...data} = obj //把obj里面 pwd字段去掉了
+    console.log(obj)
     return { type:AUTH_SUCCESS, payload:data }
 }
 
@@ -63,6 +65,7 @@ export function login({user,pwd}){
         axios.post('/user/login',{user,pwd})
         .then(res=>{
             if(res.status === 200&&res.data.code === 0){
+                console.log(res.data)
                 dispatch(authSuccess(res.data.data))
             }else{
                 dispatch(errorMsg(res.data.msg))
@@ -83,7 +86,8 @@ export function regisger({user,pwd,repeatpwd,type}){
         axios.post('/user/register',{user,pwd,type})
         .then(res=>{
             if(res.status === 200&&res.data.code === 0){
-                dispatch(authSuccess({user,pwd,type}))
+                const _id = res.data.data._id
+                dispatch(authSuccess({user,pwd,type,_id}))
             }else{
                 dispatch(errorMsg(res.data.msg))
             }

@@ -16,7 +16,6 @@ import imoocForm from '../../component/imooc-form/inooc-form'
 class Login extends React.Component{
     constructor(props){
         super(props)
-        console.log(this.props.history,this.props.redirectTo)
         this.register = this.register.bind(this)
         this.handleLogin = this.handleLogin.bind(this)
     }
