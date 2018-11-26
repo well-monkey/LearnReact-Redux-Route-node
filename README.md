@@ -8,12 +8,12 @@
 
 一些基本版本支持情况：
 
-"antd-mobile": "^2.2.2"
-"react": "^16.4.1",
-"react-dom": "^16.4.1",
-"react-redux": "^5.0.7",
-"react-router-dom": "^4.3.1",
-"webpack": "3.8.1",
+"antd-mobile": "^2.2.2"<br />
+"react": "^16.4.1",<br />
+"react-dom": "^16.4.1",<br />
+"react-redux": "^5.0.7",<br />
+"react-router-dom": "^4.3.1",<br />
+"webpack": "3.8.1"<br />
 
 #### 效果展示
 
@@ -22,16 +22,18 @@
 
 
 
-![image](https://github.com/well-monkey/LearnReact-Redux-Route-node/raw/master/example/static/register.gif)
+<div align="center"><img width="375" height="667" src="https://github.com/well-monkey/LearnReact-Redux-Route-node/raw/master/example/static/register.gif"/></div>
+<!-- ![image](https://github.com/well-monkey/LearnReact-Redux-Route-node/raw/master/example/static/register.gif) -->
 
 
 
 ######   ======登录功能 列表展示 个人中心展示======
 
 
-![image](https://github.com/well-monkey/LearnReact-Redux-Route-node/raw/master/example/static/login.gif)
+<!-- ![image](https://github.com/well-monkey/LearnReact-Redux-Route-node/raw/master/example/static/login.gif) -->
 
 
+<div align="center"><img width="375" height="667" src="https://github.com/well-monkey/LearnReact-Redux-Route-node/raw/master/example/static/login.gif"/></div>
 
 
 
@@ -53,7 +55,7 @@
 
 #### 学习说明
 
- ======整理不易，star支持一下吧======   
+ ======整理不易，star支持一下吧:smile:======   
 
 
 ```
