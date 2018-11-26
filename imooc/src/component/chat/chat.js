@@ -63,8 +63,9 @@ class Chat extends React.Component{
                     onLeftClick={() => {this.props.history.goBack()}}
                 >{users[userid].name}</NavBar>
                 <QueueAnim  delay={800} type='left'>
-                    {chatmsgs.map(v=>{
+                    {chatmsgs.map(v =>{
                         const avatar = require(`../img/${users[v.from].avatar}.jpg`)
+                        console.log(avatar)
                         return v.from===userid?(
                             <List key={v._id}>
                                 <Item 
@@ -80,7 +81,6 @@ class Chat extends React.Component{
                                 >{v.content}</Item>
                             </List>
                         )
-                    
                     })}
                 </QueueAnim>
                

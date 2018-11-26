@@ -4,7 +4,7 @@ const AUTH_SUCCESS = 'AUTH_SUCCESS'
 const ERROR_MSG = 'ERROR_MSG'
 const LOAD_DATA = 'LOAD_DATA'
 const LOGOUT = 'LOGOUT'
-
+const TO_REGISGER = 'TO_REGISGER'
 
 const initState = {
     redirectTo:'',
@@ -23,7 +23,9 @@ export function user(state=initState,action){
         case ERROR_MSG:
             return {...state,isAuth:false,msg:action.msg}
         case LOGOUT:
-            return {...initState,redirectTo:'/login'}            
+            return {...initState,redirectTo:'/login'} 
+        case TO_REGISGER:
+            return {...initState,redirectTo:''}           
         default:
             return state
     }
@@ -46,6 +48,10 @@ export function loadData(userinfo){
 // 退出信息
 export function logoutSubmit(){
     return { type:LOGOUT }
+}
+// 登录退出后再次点击注册时候会不能跳转,需要手动清空redirect 
+export function toRegisger(){
+    return { type: TO_REGISGER }
 }
 
 // 登录页面

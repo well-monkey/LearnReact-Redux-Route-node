@@ -39,6 +39,13 @@
     width: 100%;
 }
 
+.logo-container{
+    background:-webkit-linear-gradient(left top, red , #9C418E, #108ee9);
+    padding:75px 0;
+    margin-bottom: 15px;
+}
+
+
 #chat-page .chat-me .am-list-extra{
     flex-basis: auto;
 }
