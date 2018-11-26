@@ -63,7 +63,7 @@
 
     React   若果要做复杂应用 得用到 redux
     Redux 
-    dispatch  action reducer state 单身边数据流
+    dispatch  action reducer state 
 
 一.课程概述
     1.实时聊天的app
