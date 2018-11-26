@@ -1,9 +1,28 @@
 # learnReact
 
 #### 项目介绍
+
 学习react 项目实践 企业招聘可以聊天的APP
 
+运用了Redux+React Router+Node.js全栈开发知识，支持服务端渲染，运用socket.io处理聊天数据
+
+一些基本版本支持情况：
+
+"antd-mobile": "^2.2.2"
+"react": "^16.4.1",
+"react-dom": "^16.4.1",
+"react-redux": "^5.0.7",
+"react-router-dom": "^4.3.1",
+"webpack": "3.8.1",
+
 #### 效果展示
+
+
+######   ======注册功能 分为两种身份======
+
+
+
+![image](https://github.com/well-monkey/LearnReact-Redux-Route-node/raw/master/example/static/register.gif)
 
 
 
@@ -13,11 +32,6 @@
 ![image](https://github.com/well-monkey/LearnReact-Redux-Route-node/raw/master/example/static/login.gif)
 
 
-######   ======注册功能 分为两种身份======
-
-
-
-![image](https://github.com/well-monkey/LearnReact-Redux-Route-node/raw/master/example/static/register.gif)
 
 
 

@@ -8,9 +8,6 @@ import path        from 'path'
 
 import csshook from 'css-modules-require-hook/preset' 
 import assethook from 'asset-require-hook'
-assethook(
-    {extensions: ['jpg','jpeg','png','gif'],name: '[hash].[ext]'}
-)
 import React from 'react'
 import { Provider } from 'react-redux' //链接用的 只用一次
 import { createStore,applyMiddleware,compose } from 'redux' // applyMiddleware 管理中间件 compose组合函数
@@ -18,9 +15,12 @@ import thunk  from 'redux-thunk'
 import { StaticRouter } from 'react-router-dom'
 import App from '../src/app'  
 import reducers from '../src/reducer' // 全部的reducer import reducers from './reducer' // 全部的reducer
-
-import { renderToString,renderToNodeStream } from 'react-dom/server'
+import { renderToString } from 'react-dom/server'
 import staticPath from '../build/asset-manifest'
+assethook(
+    {extensions: ['jpg','jpeg','png','gif'],name: '[hash].[ext]'}
+)
+
 
 
 

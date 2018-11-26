@@ -16,7 +16,7 @@ class Chat extends React.Component{
         this.state = {text:'',msg:[]}
     }
     componentDidMount() {
-        console.log(!this.props.chat.chatmsg.length)
+        //this.props.chat.chatmsg.length为0的时候更新收到的数据
         if(!this.props.chat.chatmsg.length){
             this.props.getMegList()
             this.props.recvMsg()
