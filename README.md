@@ -18,7 +18,7 @@
 #### 效果展示
 
 
-######   ======注册功能 分为两种身份======
+######  <div align="center"> ======注册功能 分为两种身份======</div>
 
 
 
@@ -27,7 +27,7 @@
 
 
 
-######   ======登录功能 列表展示 个人中心展示======
+######   <div align="center">======登录功能 列表展示 个人中心展示======</div>
 
 
 <!-- ![image](https://github.com/well-monkey/LearnReact-Redux-Route-node/raw/master/example/static/login.gif) -->
