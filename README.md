@@ -5,8 +5,15 @@
 
 #### 效果展示
 
-登录功能 列表展示 个人中心展示 
+
+
+######   ======登录功能 列表展示 个人中心展示======
+
+
 ![image](https://github.com/well-monkey/LearnReact-Redux-Route-node/raw/master/example/static/login.gif)
+
+
+
 
 #### 教程说明
 
