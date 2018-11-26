@@ -3,12 +3,13 @@ import {connect} from 'react-redux'
 import { Result,List,WhiteSpace,Modal } from 'antd-mobile'
 import browserCookie from 'browser-cookies'
 import {logoutSubmit} from '../../redux/user.redux'
+import {cleanMsg} from '../../redux/chat.redux'
 import { Redirect } from 'react-router-dom'
 
 
 @connect(
     state=>state.user,
-    {logoutSubmit}
+    {logoutSubmit,cleanMsg}
 )
 class User extends React.Component{
     constructor(props){
@@ -22,6 +23,7 @@ class User extends React.Component{
             { text: '确认', onPress: () => {
                 browserCookie.erase('userid')
                 this.props.logoutSubmit()
+                this.props.cleanMsg()
             }},
         ])
     }
@@ -29,16 +31,15 @@ class User extends React.Component{
         const props = this.props
         const Item = List.Item
         const Brief = Item.Brief
-        console.log(this.props.desc)
         return props.user?(
             <div>
                 {
                     this.props.avatar?<Result 
-                        img={ <img src={require(`../img/${this.props.avatar}.jpg`)} style={{width:50}} alt="" /> }
+                        img={ <img src={require(`../img/${this.props.avatar}.png`)} style={{width:50}} alt="" /> }
                         title={ props.user }
                         message={props.type === 'boss'?props.company:null}
                     />:<Result 
-                        img={ <img src={require(`../img/bear.jpg`)} style={{width:50}} alt="" /> }
+                        img={ <img src={require(`../img/bear.png`)} style={{width:50}} alt="" /> }
                         title={ '匿名' }
                         message={props.type === 'boss'?props.company:null}
                     />

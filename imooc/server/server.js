@@ -9,7 +9,7 @@ import path        from 'path'
 import csshook from 'css-modules-require-hook/preset' 
 import assethook from 'asset-require-hook'
 assethook(
-    {extensions: ['jpg','jpeg','png'],name: '[hash].[ext]'}
+    {extensions: ['jpg','jpeg','png','gif'],name: '[hash].[ext]'}
 )
 import React from 'react'
 import { Provider } from 'react-redux' //链接用的 只用一次

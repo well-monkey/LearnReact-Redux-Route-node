@@ -24,7 +24,6 @@ class Msg extends React.Component{
             const b_last = this.getLast(b).create_time
             return b_last - a_last
         }) // es6直接取key值 并且倒序排序 确保最新的时间消息在最上面
-        console.log(chatList)
         return(
             <div>
                 {chatList.map(v=>{
@@ -33,11 +32,11 @@ class Msg extends React.Component{
                     const unreadNum = v.filter(v=>!v.read&&v.to===userid).length
                     const name = userInfo[targetId]?userInfo[targetId].name:''
                     const avatar = userInfo[targetId]?userInfo[targetId].avatar:''
-                    return(
+                    return avatar!==''?(
                         <List key={lastItem._id}>
                             <Item
                                 extra={<Badge text={unreadNum}></Badge>}
-                                thumb={require(`../img/${avatar}.jpg`)}
+                                thumb={require(`../img/${avatar}.png`)}
                                 arrow='horizontal'
                                 onClick={()=>{
                                     this.props.history.push(`/chat/${targetId}`)
@@ -47,7 +46,7 @@ class Msg extends React.Component{
                                 <Brief>{name}</Brief>
                             </Item>
                         </List>
-                    )
+                    ):null
                 })}
             </div>
         )

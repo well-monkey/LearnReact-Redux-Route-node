@@ -6,6 +6,7 @@ const socket = io('ws://localhost:9093')
 const MSG_LIST = 'MSG_LIST'  // 获取聊天列表
 const MSG_RECV = 'MSG_RECV'  // 读取信息
 const MSG_READ = 'MSG_READ'  // 标识已读
+const MSG_CLEAN = 'MSG_CLEAN' // 聊天消息清空
 
 const initState ={
     chatmsg:[],
@@ -26,6 +27,8 @@ export function chat(state=initState,action){
             return {...state,chatmsg:state.chatmsg.map(v=>({...v,read:from===v.from?true:v.read})),
                 unread:state.unread-num
             }
+        case MSG_CLEAN:
+            return {...state,chatmsg:[]}
         default:
             return state
     }
@@ -69,7 +72,10 @@ export function readMsg(from){
     }
 }
 
-
+// 聊天消息清空
+export function cleanMsg(){
+    return { type: MSG_CLEAN }
+}
 
 
 export function getMegList(){

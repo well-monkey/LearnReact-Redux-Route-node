@@ -45,7 +45,9 @@
     margin-bottom: 15px;
 }
 
-
+#chat-page{
+    padding-bottom: 40px;
+}
 #chat-page .chat-me .am-list-extra{
     flex-basis: auto;
 }
